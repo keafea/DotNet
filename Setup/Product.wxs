@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="Billing Reprint" Language="1033" Version="1.0.0.0" Manufacturer="KF" UpgradeCode="bf71938a-a0a1-4e7a-bcbe-f87dd114fdbe">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Platform="x64"/>
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of Billing Reprint is already installed." AllowSameVersionUpgrades="yes"/>
+    <MediaTemplate />
+
+    <Feature Id="ProductFeature" Title="BillingReprintSetup" Level="1">
+      <ComponentGroupRef Id="MyWebComponents" />
+      <ComponentGroupRef Id="DemoWebsiteIssConfiguration" />
+    </Feature>
+
+    <!--Custom action for launching IISRESET after installation-->
+    <InstallExecuteSequence>
+      <Custom Action="IISRESET" After="InstallFinalize"/>
+    </InstallExecuteSequence>
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <!-- Will reference to C:\inetpub-->
+      <Directory Id="INETPUB" Name="Inetpub">
+        <!--Will create a new folder here-->
+        <Directory Id="INSTALLFOLDER" Name="BillingReprintSetup" />
+      </Directory>
+    </Directory>
+  </Fragment>
+</Wix>

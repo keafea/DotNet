@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:iis="http://schemas.microsoft.com/wix/IIsExtension"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <Fragment>
+
+    <Property Id="DOMAIN" Value="DOMAIN" />
+    <Property Id="NAME" Value="username" />
+    <Property Id="PWD" Hidden="yes" />
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="BillingReprintAppPool" Guid="" KeyPath="yes" Win64="yes">
+        <!--<Condition>-->
+        <!--NOT (Installed Or NOT (OLDERVERSIONBEINGUPGRADED))-->
+        <!--</Condition>-->
+
+        <iis:WebAppPool Id="ASP.NET_v4.0_AMAPP"
+                        Name="ASP.NET_v4.0_AMAPP"
+                        Identity="applicationPoolIdentity"
+                        ManagedPipelineMode="Integrated"
+                        ManagedRuntimeVersion="v4.0"/>
+      </Component>
+
+      <Component Id="InstallWebsite" Guid="{4DAEA046-3CA3-46BF-B5F1-1BD534D33DB6}" KeyPath="yes" Win64="yes">
+        <!-- Install to default web site -->
+        <iis:WebVirtualDir Id="BillingReprintWebsite"
+                               Alias="BillingReprint"
+                               Directory="INSTALLFOLDER"
+                               WebSite="DefaultWebSite">
+          <!-- Turn the Virtual Directory into a web application. -->
+          <iis:WebApplication Id="DemoWebsiteApplication"
+                              Name="BillingReprint"
+                              WebAppPool="ASP.NET_v4.0_AMAPP"/>
+          <iis:WebDirProperties Id="BillingReprintProperties"
+                                AnonymousAccess="no"
+                                WindowsAuthentication="yes"/>
+        </iis:WebVirtualDir>
+      </Component>
+    </DirectoryRef>
+
+    <iis:WebSite Id="DefaultWebSite"
+                 Description="Default Web Site"
+                 Directory="INSTALLFOLDER">
+      <iis:WebAddress Id="AllUnassigned" Port="80" />
+    </iis:WebSite>
+
+    <ComponentGroup Id="DemoWebsiteIssConfiguration">
+      <ComponentRef Id="InstallWebsite" />
+      <ComponentRef Id="BillingReprintAppPool" />
+    </ComponentGroup>
+
+    <CustomAction Id="IISRESET" Directory="TARGETDIR" ExeCommand='"[WindowsFolder]system32\IISRESET.exe"'
+                  Return='ignore' />
+
+  </Fragment>
+</Wix>

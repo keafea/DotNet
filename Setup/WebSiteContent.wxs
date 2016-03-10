@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLFOLDER">
+            <Directory Id="dir7307A6085BD4ABD9B8955C093FD541F5" Name="bin" />
+            <Directory Id="dirB35AE0EF5637417E4BD3D0EF327ACA7D" Name="scripts" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="MyWebComponents">
+            <Component Id="cmp687F2247A02D21E247595804EFE04A70" Directory="INSTALLFOLDER" Guid="{AFB32647-65F3-4549-A58A-E3D1C55A8C95}">
+                <File Id="fil26632584E925BB36171FC46C52C42BAC" KeyPath="yes" Source="$(var.publishDir)\ApplicationInsights.config" />
+            </Component>
+            <Component Id="cmp6A4F9D28DF6F992FCE04768A605F3F6B" Directory="INSTALLFOLDER" Guid="{CA587C45-2CCD-4F68-B73D-D0A138DF137C}">
+                <File Id="fil290EB696DE8E76F029E58930686F7404" KeyPath="yes" Source="$(var.publishDir)\Global.asax" />
+            </Component>
+            <Component Id="cmp1399BBFC1334CE2D8FC84A51F6700AAF" Directory="INSTALLFOLDER" Guid="{F6229CFC-3C81-4156-8104-0A61CED68B68}">
+                <File Id="fil429E9F6F3CEB49AF0D1757F154FF70F0" KeyPath="yes" Source="$(var.publishDir)\Main.aspx" />
+            </Component>
+            <Component Id="cmp3DE0E27CB4AD0EAD15733F20AB0760EF" Directory="INSTALLFOLDER" Guid="{35937FBD-0165-4C4B-B4FE-8DE06794AC59}">
+                <File Id="filF804CBAD53A94E1BE2AB44FD5DF0AB63" KeyPath="yes" Source="$(var.publishDir)\packages.config" />
+            </Component>
+            <Component Id="cmpCDB7F4EFDEF1E65C3B12BEBAD7E4D7EA" Directory="INSTALLFOLDER" Guid="{78259DD7-27D3-4C0D-BA7A-720A02B10117}">
+                <File Id="fil8994620207C22CA15AF75ACDD6420C79" KeyPath="yes" Source="$(var.publishDir)\Web.config" />
+            </Component>
+            <Component Id="cmp67C4C4BC15D5A84D15B65C9893780240" Directory="dir7307A6085BD4ABD9B8955C093FD541F5" Guid="{5E5CF8C0-118F-4E26-9AB1-C8221F80E2E0}">
+                <File Id="fil59EBCB2F4FB16AEFDA379A5ED98DD2BE" KeyPath="yes" Source="$(var.publishDir)\bin\BillingReprint.dll" />
+            </Component>
+            <Component Id="cmp027F1F2279388D6A2374BCFEC93B25FB" Directory="dir7307A6085BD4ABD9B8955C093FD541F5" Guid="{C4BEA1F6-A899-4C52-AB0E-F3492DB341F6}">
+                <File Id="fil83722BBE50C8A47E91D037546EB89E64" KeyPath="yes" Source="$(var.publishDir)\bin\BillingReprint.pdb" />
+            </Component>
+            <Component Id="cmpEA87C851D7C1B10C236668C114BE47C3" Directory="dir7307A6085BD4ABD9B8955C093FD541F5" Guid="{DDDC5331-9D11-47B0-986A-F255B4368A7A}">
+                <File Id="filB6B767860338B54C370539AE10E63597" KeyPath="yes" Source="$(var.publishDir)\bin\Microsoft.AI.Agent.Intercept.dll" />
+            </Component>
+            <Component Id="cmp09B7A4D1D15410734F1BB616497FAB61" Directory="dir7307A6085BD4ABD9B8955C093FD541F5" Guid="{2813DBAE-EDE9-42BC-8922-B3F5B15B958D}">
+                <File Id="filA874633F349C98813500F35C1B7939FA" KeyPath="yes" Source="$(var.publishDir)\bin\Microsoft.AI.DependencyCollector.dll" />
+            </Component>
+            <Component Id="cmpF55D991454540F913E3C4062E7331192" Directory="dir7307A6085BD4ABD9B8955C093FD541F5" Guid="{E9F969E2-4E91-412A-B593-73CDC36BDD58}">
+                <File Id="filBE5909288783370C9477B46F4C70392D" KeyPath="yes" Source="$(var.publishDir)\bin\Microsoft.AI.PerfCounterCollector.dll" />
+            </Component>
+            <Component Id="cmpDC88BBCEF1FC8CB57A7B8E1A1AA74579" Directory="dir7307A6085BD4ABD9B8955C093FD541F5" Guid="{79D87A34-7730-4418-9560-CCF53CEEF6AE}">
+                <File Id="fil600588683644E58FE46D8F1D6ACD4BF2" KeyPath="yes" Source="$(var.publishDir)\bin\Microsoft.AI.ServerTelemetryChannel.dll" />
+            </Component>
+            <Component Id="cmp73E0AE6CC60AFB3978B0C54E7B523161" Directory="dir7307A6085BD4ABD9B8955C093FD541F5" Guid="{6FBE3C30-8D4E-47CF-BC94-6E19CFCFEBBE}">
+                <File Id="fil3B5705763885E139676E08C8EC28FBE4" KeyPath="yes" Source="$(var.publishDir)\bin\Microsoft.AI.Web.dll" />
+            </Component>
+            <Component Id="cmp12C0B8E3521B133B08D54EC34DC1AA02" Directory="dir7307A6085BD4ABD9B8955C093FD541F5" Guid="{C9998B82-EC09-4678-8B38-67550E1FF9DF}">
+                <File Id="filAD1F0859767AA982862D21F4FEA579DC" KeyPath="yes" Source="$(var.publishDir)\bin\Microsoft.AI.WindowsServer.dll" />
+            </Component>
+            <Component Id="cmp83B091C8E4C28CDA3907108966A880EC" Directory="dir7307A6085BD4ABD9B8955C093FD541F5" Guid="{6D451665-054A-43BC-BCF4-BC91CC88AC37}">
+                <File Id="filF9974E73E4816E8A6449ED9D6727DA1A" KeyPath="yes" Source="$(var.publishDir)\bin\Microsoft.ApplicationInsights.dll" />
+            </Component>
+            <Component Id="cmp50642F6868B70A0D2E0A7894E1C65D3F" Directory="dir7307A6085BD4ABD9B8955C093FD541F5" Guid="{7489EFF6-0E5B-4E0C-A2A8-02BD822F04AD}">
+                <File Id="fil5943330B26DED2D0E7F26CAC5D34148F" KeyPath="yes" Source="$(var.publishDir)\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+            </Component>
+            <Component Id="cmp022ACC3EA76D49B7BBE90D1EDF463D55" Directory="dirB35AE0EF5637417E4BD3D0EF327ACA7D" Guid="{224CC422-DBF5-4CE9-B066-23D3328BD74D}">
+                <File Id="fil271ED752A163EE49EE67CB1F0EECD874" KeyPath="yes" Source="$(var.publishDir)\scripts\ai.0.15.0-build58334.js" />
+            </Component>
+            <Component Id="cmp3E9BB630D21ABFDC3B669AEA22158676" Directory="dirB35AE0EF5637417E4BD3D0EF327ACA7D" Guid="{5F4B897A-9D51-40B6-BCE1-5774C03B75DD}">
+                <File Id="fil136D2E0A2B072B3AAF18431D1898DD16" KeyPath="yes" Source="$(var.publishDir)\scripts\ai.0.15.0-build58334.min.js" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>
